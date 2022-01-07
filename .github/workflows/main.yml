@@ -1,4 +1,4 @@
-name: Testing And Deploying
+name: Deploying
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-            
+
       - name: Install dependencies
         run: npm install
 

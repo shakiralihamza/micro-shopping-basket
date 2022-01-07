@@ -10,16 +10,17 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import {Box} from "@mui/material";
 import {FC} from "react";
 import DoneIcon from '@mui/icons-material/Done';
+
 type ProductItemProps = {
     isFavourite: boolean
     isAdded: boolean
 }
 const ProductItem: FC<ProductItemProps> = ({isFavourite, isAdded}) => (
-    <Card elevation={isAdded?1:0} sx={{
+    <Card elevation={isAdded ? 1 : 0} sx={{
         width: 200,
         borderRadius: '10px',
         border: '1.5px solid',
-        borderColor: isAdded?'primary.main':'#e7e7e7'
+        borderColor: isAdded ? 'primary.main' : '#e7e7e7'
     }}>
         <CardHeader
             sx={{padding: 0}}
@@ -29,7 +30,7 @@ const ProductItem: FC<ProductItemProps> = ({isFavourite, isAdded}) => (
                     size={"small"}
                     sx={{
                         backgroundColor: isFavourite ? '#f55058' : null,
-                        '&: hover': {backgroundColor: '#f55058'},
+                        '&: hover': {backgroundColor: isFavourite ? '#f55058' : null},
                         margin: '10px 20px 0 0',
                         color: isFavourite ? 'white' : 'grey.400'
                     }}
@@ -41,7 +42,7 @@ const ProductItem: FC<ProductItemProps> = ({isFavourite, isAdded}) => (
         <CardMedia
             component="img"
             height={100}
-            image="https://images.unsplash.com/photo-1597177142843-b7997f5e2d4f?"
+            image="https://images.unsplash.com/photo-1597177142843-b7997f5e2d4f"
             alt="Image"
         />
         <CardContent sx={{padding: 2}}>
@@ -63,7 +64,7 @@ const ProductItem: FC<ProductItemProps> = ({isFavourite, isAdded}) => (
                 bottom: -40,
                 position: 'relative',
                 '&: hover': {
-                    cursor: isAdded?null:'pointer'
+                    cursor: isAdded ? null : 'pointer'
                 }
             }}>
                 {
@@ -78,7 +79,7 @@ const ProductItem: FC<ProductItemProps> = ({isFavourite, isAdded}) => (
                                             cursor: 'default'
                                         }
                                     }}>
-                            <DoneIcon />
+                            <DoneIcon/>
                         </IconButton>
                         :
                         <IconButton disableRipple
@@ -86,6 +87,7 @@ const ProductItem: FC<ProductItemProps> = ({isFavourite, isAdded}) => (
                                     sx={{
                                         left: 20,
                                         top: 23,
+                                        color: 'primary.main'
                                     }}>
                             <Box sx={{fontWeight: 600}}>+</Box>
                         </IconButton>

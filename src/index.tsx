@@ -9,7 +9,10 @@ import {indigo} from "@mui/material/colors";
 
 const theme: Theme = createTheme({
     palette: {
-        primary: indigo
+        primary: indigo,
+        background:{
+            default: '#f2f2f4'
+        }
     },
 });
 ReactDOM.render(

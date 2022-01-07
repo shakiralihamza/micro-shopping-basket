@@ -1,11 +1,10 @@
 import React from 'react';
-import ProductItem from "./components/ProductItem";
+import ProductList from "./components/ProductList";
 
 function App() {
   return (
     <div className="App">
-      {/*<ProductItem isFavourite={true} isAdded={true}/>*/}
-      {/*<ProductItem isFavourite={false} isAdded={false}/>*/}
+      <ProductList/>
     </div>
   );
 }

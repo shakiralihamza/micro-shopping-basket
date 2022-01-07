@@ -16,7 +16,7 @@ type ProductItemProps = {
 }
 const ProductItem: FC<ProductItemProps> = ({isFavourite, isAdded}) => (
     <Card elevation={isAdded?1:0} sx={{
-        maxWidth: 200,
+        width: 200,
         borderRadius: '10px',
         border: '1.5px solid',
         borderColor: isAdded?'primary.main':'#e7e7e7'

@@ -29,16 +29,16 @@ const QuantityButton: FC<QuantityButtonProps> = ({icon}) => {
 }
 
 const BasketItem = () => (
-    <Grid container alignItems={'center'} spacing={2}>
-        <Grid item xs={4}>
+    <Grid container alignItems={'center'} justifyContent={"space-between"}>
+        <Grid item xs={2}>
             <img alt={"_image"} width={'100%'} src={'https://images.unsplash.com/photo-1597177142843-b7997f5e2d4f'}/>
         </Grid>
         <Grid item xs={6}>
-            <Typography variant={'body2'} fontWeight={'bold'}>Theerg spooen</Typography>
+            <Typography variant={'body2'} sx={{fontSize: 12}} fontWeight={'bold'}>Theerg spooen</Typography>
             <Typography color={'primary'} fontWeight={'bold'} component={'span'}>$15.77</Typography>
         </Grid>
         <Grid item xs={1}>
-            <Stack direction={"column"} justifyContent={"center"} alignItems={'center'} spacing={1}>
+            <Stack direction={"column"} justifyContent={"center"} alignItems={'center'} spacing={0}>
                 <QuantityButton icon={<RemoveIcon sx={{fontSize: 15}}/>}/>
                 <Typography variant={'body2'} sx={{}}>1</Typography>
                 <QuantityButton icon={<AddIcon sx={{fontSize: 15}}/>}/>

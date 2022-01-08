@@ -9,7 +9,7 @@ import {Grid, Paper, Stack} from "@mui/material";
 const Header = () => {
     return (
         <>
-            <Paper elevation={0} sx={{borderRadius: '10px', padding: '20px'}}>
+            <Paper elevation={0} sx={{borderRadius: '10px', padding: '15px 20px'}}>
                 <Grid container justifyContent={"space-between"} alignItems={'center'} sx={{height: '100%'}}>
                     <Grid item>
                         <Typography variant="h5" fontWeight={'bold'} color={'primary'}>

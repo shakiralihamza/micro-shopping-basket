@@ -1,13 +1,14 @@
 import React from 'react';
-import {Button, Grid, Paper, Typography} from "@mui/material";
+import {Box, Button, Grid, Paper, Typography} from "@mui/material";
 import BasketItem from "./BasketItem";
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 
 const Basket = () => (
     <>
-        <Paper elevation={0} sx={{padding: '30px', borderRadius: '10px'}}>
-            <Grid container>
-                <Grid item xs={12}>
+        <Paper elevation={0} sx={{padding: '30px', borderRadius: '10px', height: '500px'}}>
+            <Grid container justifyContent={'space-between'} alignItems={'stretch'} direction={"column"}
+                  sx={{height: '100%'}}>
+                <Grid item xs={1}>
                     <Typography
                         component={'span'}
                         variant={'h6'}
@@ -30,26 +31,28 @@ const Basket = () => (
                         (4 items)
                     </Typography>
                 </Grid>
-                <Grid item sx={{margin: '10px 0'}}>
-                    <Grid container direction={"column"} spacing={5}>
-                        {
-                            [1, 2, 3, 4].map(() => (
-                                <Grid item>
-                                    <BasketItem/>
-                                </Grid>
-                            ))
-                        }
-                    </Grid>
+                <Grid item xs={9} sx={{margin: '10px 0'}}>
+                    <Box sx={{height: '330px', overflow:'auto', overflowX: 'hidden'}}>
+                        <Grid container direction={"column"} spacing={2}>
+                            {
+                                [1,1,1].map(() => (
+                                    <Grid item xs={12}>
+                                        <BasketItem/>
+                                    </Grid>
+                                ))
+                            }
+                        </Grid>
+                    </Box>
                 </Grid>
-                <Grid item xs>
-                    <Grid container justifyContent={"space-between"} alignItems={'center'}>
+                <Grid item xs={1}>
+                    <Grid container direction={'row'} justifyContent={"space-between"} alignItems={'center'}>
                         <Grid item>
                             <Typography
                                 component={'span'} fontWeight={'bold'}
-                                sx={{position: 'relative', top: '-13px', right: 5, fontSize: 13}}>
+                                sx={{position: 'relative', top: '-5px', right: 2, fontSize: 11}}>
                                 $
                             </Typography>
-                            <Typography component={'span'} variant={'h4'} fontWeight={'bold'}>
+                            <Typography component={'span'} variant={'h6'} fontWeight={'bold'}>
                                 2345
                             </Typography>
                         </Grid>

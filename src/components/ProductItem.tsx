@@ -17,7 +17,7 @@ type ProductItemProps = {
 }
 const ProductItem: FC<ProductItemProps> = ({isFavourite, isAdded}) => (
     <Card elevation={isAdded ? 1 : 0} sx={{
-        width: 200,
+        width: 170,
         borderRadius: '10px',
         border: '1.5px solid',
         borderColor: isAdded ? 'primary.main' : '#e7e7e7'
@@ -35,7 +35,7 @@ const ProductItem: FC<ProductItemProps> = ({isFavourite, isAdded}) => (
                         color: isFavourite ? 'white' : 'grey.400'
                     }}
                 >
-                    <FavoriteIcon fontSize={"small"}/>
+                    <FavoriteIcon sx={{fontSize:13}}/>
                 </IconButton>
             }
         />
@@ -46,22 +46,22 @@ const ProductItem: FC<ProductItemProps> = ({isFavourite, isAdded}) => (
             alt="Image"
         />
         <CardContent sx={{padding: 2}}>
-            <Typography variant="body1" sx={{fontWeight: 500}}>
+            <Typography variant="body1" sx={{fontWeight: 500, fontSize:15}}>
                 This spoon
             </Typography>
         </CardContent>
-        <CardActions sx={{overflow: 'hidden', height: '100px', padding: 2}}>
-            <Typography mt={3} variant={'h6'} color={'primary'} fontWeight={"bold"}>
+        <CardActions sx={{overflow: 'hidden', height: '70px', padding: 2}}>
+            <Typography mt={2} variant={'h6'} sx={{fontSize:18}} color={'primary'} fontWeight={"bold"}>
                 $12.9
             </Typography>
 
             <Box sx={{
-                height: '150px',
+                height: '120px',
                 width: '100%',
                 backgroundColor: isAdded ? 'rgba(63,81,181)' : 'rgba(63,81,181,0.12)',
                 borderRadius: '50%',
-                right: -70,
-                bottom: -40,
+                right: -60,
+                bottom: -30,
                 position: 'relative',
                 '&: hover': {
                     cursor: isAdded ? null : 'pointer'
@@ -72,8 +72,8 @@ const ProductItem: FC<ProductItemProps> = ({isFavourite, isAdded}) => (
                         <IconButton disableRipple color={"primary"}
                                     aria-label="add to favorites"
                                     sx={{
-                                        left: 17,
-                                        top: 27,
+                                        left: 5,
+                                        top: 17,
                                         color: 'white',
                                         '&: hover': {
                                             cursor: 'default'
@@ -85,11 +85,11 @@ const ProductItem: FC<ProductItemProps> = ({isFavourite, isAdded}) => (
                         <IconButton disableRipple
                                     aria-label="add to favorites"
                                     sx={{
-                                        left: 20,
-                                        top: 23,
+                                        left: 11,
+                                        top: 16,
                                         color: 'primary.main'
                                     }}>
-                            <Box sx={{fontWeight: 600}}>+</Box>
+                            <Box sx={{fontWeight: 600, fontSize:20}}>+</Box>
                         </IconButton>
                 }
             </Box>

@@ -1,21 +1,21 @@
 import {Container, Grid} from '@mui/material';
 import React from 'react';
 import Basket from "./components/Basket";
-import ProductList from "./components/ProductList";
+import Products from "./components/Products";
 import Header from "./components/Header";
 
 function App() {
     return (
         <Container maxWidth={"lg"}>
             <Grid container justifyContent={'space-between'} spacing={2}>
-                <Grid item xs={12} mt={4}>
+                <Grid item xs={12} mt={2}>
                     <Header/>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item sx={{width:'310px'}}>
                     <Basket/>
                 </Grid>
                 <Grid item xs>
-                    <ProductList/>
+                    <Products/>
                 </Grid>
             </Grid>
         </Container>

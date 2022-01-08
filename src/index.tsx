@@ -6,6 +6,7 @@ import {createTheme, CssBaseline, Theme, ThemeProvider} from "@mui/material";
 import {indigo} from "@mui/material/colors";
 import { store } from './app/store';
 import { Provider } from 'react-redux';
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 
 const theme: Theme = createTheme({
     palette: {
@@ -26,3 +27,5 @@ ReactDOM.render(
     </React.StrictMode>,
     document.getElementById('root')
 );
+
+serviceWorkerRegistration.register();

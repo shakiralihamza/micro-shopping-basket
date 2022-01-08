@@ -2,15 +2,22 @@ import React from 'react';
 import {Box, Button, Grid, Paper, Typography} from "@mui/material";
 import BasketItem from "./BasketItem";
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import {useSelector} from "react-redux";
-import {RootState} from "../app/store";
 import {ProductItemType} from "../react-app-env";
+import {useAppSelector} from "../app/hooks";
 
 const Basket = () => {
-    const products = useSelector((state: RootState) => state.products);
-    const addedProducts = products.filter((product: ProductItemType) => product.isAdded)
-    const addedProductsPrices = addedProducts.map((product: ProductItemType) => product.price)
-    const totalAmount = addedProductsPrices.reduce((a, b) => a + b, 0)
+    const products = useAppSelector((state) => state.products);
+    const addedProducts = products.filter((product: ProductItemType) => product.isAdded);
+    const pricesOfAddedProducts = addedProducts.map((product: ProductItemType) => {
+        // if quantity of an item is greater than 1, we multiply the price, obviously.
+        if (product.quantity > 1) {
+            return product.price * product.quantity
+        } else {
+            return product.price
+        }
+    });
+    const totalAmount = pricesOfAddedProducts.reduce((a, b) => a + b, 0).toFixed(2);
+
     return (
         <>
             <Paper elevation={0} sx={{padding: '30px', borderRadius: '10px', height: '500px'}}>
@@ -53,8 +60,9 @@ const Basket = () => {
                             <Grid container direction={"column"} spacing={2}>
                                 {
                                     addedProducts.map((product: ProductItemType) => (
-                                        <Grid item xs={12} key={product.title}>
+                                        <Grid item xs={12} key={product.id}>
                                             <BasketItem
+                                                id={product.id}
                                                 quantity={product.quantity}
                                                 title={product.title}
                                                 imageUrl={product.imageUrl}

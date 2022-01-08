@@ -1,11 +1,10 @@
 import React from 'react';
 import {Grid, Paper, Typography} from "@mui/material";
 import ProductItem from "./ProductItem";
-import {useSelector} from "react-redux";
 import {ProductItemType} from '../react-app-env'
-import {RootState} from "../app/store";
+import {useAppSelector} from "../app/hooks";
 const Products = () => {
-    const products = useSelector((state:RootState) => state.products);
+    const products = useAppSelector((state) => state.products);
     return (
         <>
             <Paper elevation={0} sx={{height: '500px', padding: '30px', borderRadius: '10px'}}>
@@ -25,13 +24,15 @@ const Products = () => {
                         <Grid container spacing={2} sx={{overflow: 'auto', height: '400px'}}>
                             {
                                 products.map((product: ProductItemType) => (
-                                    <Grid item xs={3} key={product.title}>
+                                    <Grid item xs={3} key={product.id}>
                                         <ProductItem
+                                            id={product.id}
                                             isFavourite={product.isFavourite}
                                             isAdded={product.isAdded}
                                             price={product.price}
                                             title={product.title}
                                             imageUrl={product.imageUrl}
+                                            quantity={product.quantity}
                                         />
                                     </Grid>
                                 ))

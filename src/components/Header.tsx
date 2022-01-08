@@ -5,11 +5,10 @@ import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import {Grid, Paper, Stack} from "@mui/material";
-import {useSelector} from "react-redux";
-import {RootState} from "../app/store";
+import {useAppSelector} from "../app/hooks";
 
 const Header = () => {
-    const products = useSelector((state: RootState) => state.products)
+    const products = useAppSelector((state) => state.products)
     const addedItems = products.filter((product) => product.isAdded)
     const favouriteItems = products.filter((product) => product.isFavourite)
 

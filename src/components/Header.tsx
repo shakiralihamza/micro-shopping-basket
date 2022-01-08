@@ -5,8 +5,14 @@ import Badge from '@mui/material/Badge';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import {Grid, Paper, Stack} from "@mui/material";
+import {useSelector} from "react-redux";
+import {RootState} from "../app/store";
 
 const Header = () => {
+    const products = useSelector((state: RootState) => state.products)
+    const addedItems = products.filter((product) => product.isAdded)
+    const favouriteItems = products.filter((product) => product.isFavourite)
+
     return (
         <>
             <Paper elevation={0} sx={{borderRadius: '10px', padding: '15px 20px'}}>
@@ -18,7 +24,7 @@ const Header = () => {
                     </Grid>
                     <Grid item>
                         <Stack direction={'row'} spacing={3}>
-                            <Badge badgeContent={4} color="primary">
+                            <Badge badgeContent={addedItems.length} invisible={addedItems.length <= 0} color="primary">
                                 <IconButton size="small" sx={{
                                     backgroundColor: 'grey.100',
                                     borderRadius: '8px',
@@ -29,7 +35,8 @@ const Header = () => {
                                     <ShoppingCartOutlinedIcon color={'primary'}/>
                                 </IconButton>
                             </Badge>
-                            <Badge badgeContent={17} color="primary">
+                            <Badge badgeContent={favouriteItems.length} invisible={favouriteItems.length <= 0}
+                                   color="primary">
                                 <IconButton size="small" sx={{
                                     backgroundColor: 'grey.100',
                                     borderRadius: '8px',

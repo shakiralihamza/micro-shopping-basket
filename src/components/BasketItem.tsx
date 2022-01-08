@@ -8,6 +8,12 @@ import IconButton from "@mui/material/IconButton";
 type QuantityButtonProps = {
     icon: JSX.Element
 }
+type BasketItemProps = {
+    imageUrl: string
+    title: string
+    quantity: undefined | number
+    price: number
+}
 const QuantityButton: FC<QuantityButtonProps> = ({icon}) => {
     return (
         <Paper sx={{
@@ -28,19 +34,20 @@ const QuantityButton: FC<QuantityButtonProps> = ({icon}) => {
     );
 }
 
-const BasketItem = () => (
-    <Grid container alignItems={'center'} justifyContent={"space-between"}>
+const BasketItem: FC<BasketItemProps> = ({imageUrl, price, quantity, title}) => (
+    <Grid container alignItems={'center'} justifyContent={"space-between"}
+          sx={{borderBottom: '1px solid', borderColor: 'grey.400', borderRadius: '10px'}}>
         <Grid item xs={2}>
-            <img alt={"_image"} width={'100%'} src={'https://images.unsplash.com/photo-1597177142843-b7997f5e2d4f'}/>
+            <img alt={"_image"} width={'100%'} src={imageUrl}/>
         </Grid>
         <Grid item xs={6}>
-            <Typography variant={'body2'} sx={{fontSize: 12}} fontWeight={'bold'}>Theerg spooen</Typography>
-            <Typography color={'primary'} fontWeight={'bold'} component={'span'}>$15.77</Typography>
+            <Typography variant={'body2'} sx={{fontSize: 12}} fontWeight={'bold'}>{title}</Typography>
+            <Typography color={'primary'} fontWeight={'bold'} component={'span'}>${price}</Typography>
         </Grid>
         <Grid item xs={1}>
             <Stack direction={"column"} justifyContent={"center"} alignItems={'center'} spacing={0}>
                 <QuantityButton icon={<RemoveIcon sx={{fontSize: 15}}/>}/>
-                <Typography variant={'body2'} sx={{}}>1</Typography>
+                <Typography variant={'body2'}>{quantity}</Typography>
                 <QuantityButton icon={<AddIcon sx={{fontSize: 15}}/>}/>
             </Stack>
         </Grid>

@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import {createTheme, CssBaseline, Theme, ThemeProvider} from "@mui/material";
 import {indigo} from "@mui/material/colors";
-// import { store } from './app/store';
-// import { Provider } from 'react-redux';
+import { store } from './app/store';
+import { Provider } from 'react-redux';
 
 const theme: Theme = createTheme({
     palette: {
@@ -18,10 +18,10 @@ const theme: Theme = createTheme({
 ReactDOM.render(
     <React.StrictMode>
         <ThemeProvider theme={theme}>
-            {/*<Provider store={store}>*/}
+            <Provider store={store}>
             <CssBaseline/>
             <App/>
-            {/*</Provider>*/}
+            </Provider>
         </ThemeProvider>
     </React.StrictMode>,
     document.getElementById('root')

@@ -13,7 +13,7 @@ const initialState: ProductItemType[] = [
     },
     {
         id: 1,
-        title: 'Colorful Spoons 3pc + 3pc tea',
+        title: 'Colorful Spoons',
         price: 56.8,
         imageUrl: 'https://images.unsplash.com/photo-1591872203534-278fc084969e',
         isAdded: false,
@@ -49,7 +49,7 @@ const initialState: ProductItemType[] = [
     },
     {
         id: 5,
-        title: 'Wireless Headphones',
+        title: 'Headphones',
         price: 340,
         imageUrl: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e',
         isAdded: false,

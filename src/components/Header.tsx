@@ -6,8 +6,12 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import {Grid, Paper, Stack} from "@mui/material";
 import {useAppSelector} from "../app/hooks";
+import {FC} from 'react';
 
-const Header = () => {
+type HeaderProps = {
+    openBasket: () => void
+}
+const Header: FC<HeaderProps> = ({openBasket}) => {
     const products = useAppSelector((state) => state.products)
     const addedItems = products.filter((product) => product.isAdded)
     const favouriteItems = products.filter((product) => product.isFavourite)
@@ -24,13 +28,17 @@ const Header = () => {
                     <Grid item>
                         <Stack direction={'row'} spacing={3}>
                             <Badge badgeContent={addedItems.length} invisible={addedItems.length <= 0} color="primary">
-                                <IconButton size="small" sx={{
-                                    backgroundColor: 'grey.100',
-                                    borderRadius: '8px',
-                                    '&: hover': {
-                                        backgroundColor: 'grey.100'
-                                    }
-                                }}>
+                                <IconButton
+                                    size="small"
+                                    sx={{
+                                        backgroundColor: 'grey.100',
+                                        borderRadius: '8px',
+                                        '&: hover': {
+                                            backgroundColor: 'grey.100'
+                                        }
+                                    }}
+                                    onClick={openBasket}
+                                >
                                     <ShoppingCartOutlinedIcon color={'primary'}/>
                                 </IconButton>
                             </Badge>

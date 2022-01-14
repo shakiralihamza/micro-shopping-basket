@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Button, Grid, Paper, Typography} from "@mui/material";
+import {Box, Button, Grid, Paper, Theme, Typography, useMediaQuery, useTheme} from "@mui/material";
 import BasketItem from "./BasketItem";
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import {ProductItemType} from "../react-app-env";
@@ -17,10 +17,16 @@ const Basket = () => {
         }
     });
     const totalAmount = pricesOfAddedProducts.reduce((a, b) => a + b, 0).toFixed(2);
-
+    const theme: Theme = useTheme();
+    const isSmallerThanMD = useMediaQuery(theme.breakpoints.down('md'));
     return (
         <>
-            <Paper elevation={0} sx={{padding: '30px', borderRadius: '10px', height: '500px'}}>
+            <Paper elevation={0} sx={{
+                padding: '30px',
+                borderRadius: '10px',
+                minHeight: '500px',
+                ...(isSmallerThanMD && {height: '98vh'})
+            }}>
                 <Grid container justifyContent={'space-between'} alignItems={'stretch'} direction={"column"}
                       sx={{height: '100%'}}>
                     <Grid item xs={1}>
@@ -56,7 +62,14 @@ const Basket = () => {
                         </Typography>
                     </Grid>
                     <Grid item xs={9} sx={{margin: '10px 0'}}>
-                        <Box sx={{height: '330px', overflow: 'auto', overflowX: 'hidden'}}>
+                        <Box
+                            sx={{
+                                height: '330px',
+                                ...(isSmallerThanMD && {height: '65vh'}),
+                                overflow: 'auto',
+                                overflowX: 'hidden'
+                            }}
+                        >
                             <Grid container direction={"column"} spacing={2}>
                                 {
                                     addedProducts.map((product: ProductItemType) => (

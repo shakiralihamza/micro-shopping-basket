@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/micro-basket-app.iml" filepath="$PROJECT_DIR$/.idea/micro-basket-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/micro-shopping-basket.iml" filepath="$PROJECT_DIR$/.idea/micro-shopping-basket.iml" />
     </modules>
   </component>
 </project>

@@ -10,11 +10,9 @@ const Products = () => {
     const isSmallerThanMD = useMediaQuery(theme.breakpoints.down('md'));
     return (
         <>
-            {/*<Paper elevation={0} sx={{height: '500px', padding: '30px', borderRadius: '10px'}}>*/}
             <Paper elevation={0}
                    sx={{
                        minHeight: '500px',
-                       // ...(isSmallerThanMD && {height: ''}),
                        padding: '30px',
                        borderRadius: '10px',
                        ...(isSmallerThanMD && {marginBottom: '30px'}),

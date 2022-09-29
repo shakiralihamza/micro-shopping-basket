@@ -1,4 +1,3 @@
-import React from 'react';
 import {Box, Button, Grid, Paper, Theme, Typography, useMediaQuery, useTheme} from "@mui/material";
 import BasketItem from "./BasketItem";
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
